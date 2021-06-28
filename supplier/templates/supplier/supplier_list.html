@@ -9,12 +9,12 @@
 
 {% endblock %}
 {% block header_title %}
-    Material View
+    Supplier View
 {% endblock %}
 
 {% block breadcrumb %}
     <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Material</a></li>
+              <li class="breadcrumb-item"><a href="#">Supplier</a></li>
               <li class="breadcrumb-item active">View</li>
             </ol>
 {% endblock %}
@@ -28,45 +28,55 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Material Records</h3>
+                <h3 class="card-title">Supplier Details</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Action</th>
+                      <th>ID</th>
+                      <th>Company Name</th>
+                      <th>Phone</th>
+                      <th>GST No.</th>
+                      <th>Email </th>
+                      <th>Remarks</th>
+                      <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                   {% for mat in material %}
+                   {% for s in suppliers %}
                        <tr>
-                       <td>{{ mat.id }}</td>
-                       <td>{{ mat.name }}</td>
-                       <td>{{ mat.description | safe}}</td>
-                       <td><a class="btn btn-info btn-sm" href="{% url 'material-update' mat.id %}">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                        <a class="btn btn-danger btn-sm" href="{% url 'material-delete' mat.id %}">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                       </td>
+                           <td>{{ s.id }}</td>
+                           <td>{{ s.companyname }}</td>
+                           <td>{{ s.phoneno }}</td>
+                           <td>{{ s.GSTno }}</td>
+                           <td>{{ s.emailid }}</td>
+                           <td>{{ s.remarks | safe}}</td>
+                           <td><a class="btn btn-info btn-sm" href="{% url 'supplier-update' sup.id %}">
+                                  <i class="fas fa-pencil-alt">
+                                  </i>
+                                  Edit
+                              </a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'supplier-delete' sup.id %}">
+                                  <i class="fas fa-trash">
+                                  </i>
+                                  Delete
+                              </a>
+                           </td>
+
                        </tr>
                    {% endfor %}
                   </tbody>
                   <tfoot>
                   <tr>
-                   <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Action</th>
+                      <th>ID</th>
+                      <th>Company Name</th>
+                      <th>Phone</th>
+                      <th>GST No.</th>
+                      <th>Email </th>
+                      <th>Remarks</th>
+                      <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -102,7 +112,7 @@
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy","excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,

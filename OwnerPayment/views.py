@@ -3,17 +3,17 @@ from django.views.generic import CreateView,ListView,UpdateView,DeleteView
 from .models import *
 # Create your views here.
 class NewPayment(CreateView):
-    model = payment
+    model = OwnerPayment
     fields = '__all__'
 
 class ViewPayment(ListView):
-    model = payment
+    model = OwnerPayment
     context_object_name = ' OwnerPayments'
 
 class UpdatePayment(UpdateView):
-    model = payment
+    model = OwnerPayment
     fields = '__all__'
 
 class DeletePayment(DeleteView):
-    model = payment
+    model = OwnerPayment
     success_url = '/payment/view'

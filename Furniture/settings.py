@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'category',
     'material',
     'OwnerPayment',
+    'supplier',
+    'customer',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
