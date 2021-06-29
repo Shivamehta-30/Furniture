@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'OwnerPayment',
     'supplier',
     'customer',
+    'employee',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

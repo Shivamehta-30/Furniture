@@ -26,5 +26,6 @@ urlpatterns = [
     path('material/',include('material.urls')),
     path('OwnerPayment/',include('OwnerPayment.urls')),
     path('supplier/',include('supplier.urls')),
-    path('customer/',include('customer.urls'))
+    path('customer/',include('customer.urls')),
+    path('Employee/',include('employee.urls'))
 ]
