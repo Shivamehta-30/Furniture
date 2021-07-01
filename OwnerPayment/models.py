@@ -2,7 +2,10 @@ from django.db import models
 from django.urls import reverse
 # Create your models here.
 class OwnerPayment(models.Model):
-    type=models.CharField(max_length=80)
+    choice = (
+        ('cash', 'cash'), ('netbank', 'netbank'), ('upi', 'upi'), ('check', 'check')
+    )
+    type=models.CharField(max_length=80 , choices=choice)
     bankname=models.CharField(max_length=80)
     branchname=models.CharField(max_length=80)
     acc=models.CharField(max_length=15)
@@ -10,6 +13,9 @@ class OwnerPayment(models.Model):
     phono=models.CharField(max_length=10)
     upi=models.CharField(max_length=20)
     balance=models.CharField(max_length=10)
+    cheque_no = models.CharField(max_length=50, default='')
+    cheque_date = models.CharField(max_length=50, default='')
+    cash=models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.balance}"

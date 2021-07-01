@@ -9,12 +9,12 @@
 
 {% endblock %}
 {% block header_title %}
-    Supplier View
+    Customer View
 {% endblock %}
 
 {% block breadcrumb %}
     <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Supplier</a></li>
+              <li class="breadcrumb-item"><a href="#">Customer</a></li>
               <li class="breadcrumb-item active">View</li>
             </ol>
 {% endblock %}
@@ -28,7 +28,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Supplier Details</h3>
+                <h3 class="card-title">Customer Details</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -53,12 +53,12 @@
                            <td>{{ c.GSTno }}</td>
                            <td>{{ c.emailid }}</td>
                            <td>{{ s.remark | safe}}</td>
-                           <td><a class="btn btn-info btn-sm" href="{% url 'Customer-update' sup.id %}">
+                           <td><a class="btn btn-info btn-sm" href="{% url 'Customer-update' c.id %}">
                                   <i class="fas fa-pencil-alt">
                                   </i>
                                   Edit
                               </a>
-                            <a class="btn btn-danger btn-sm" href="{% url 'Customer-delete' sup.id %}">
+                            <a class="btn btn-danger btn-sm" href="{% url 'Customer-delete' c.id %}">
                                   <i class="fas fa-trash">
                                   </i>
                                   Delete

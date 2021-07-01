@@ -27,5 +27,6 @@ urlpatterns = [
     path('OwnerPayment/',include('OwnerPayment.urls')),
     path('supplier/',include('supplier.urls')),
     path('customer/',include('customer.urls')),
-    path('Employee/',include('employee.urls'))
+    path('Employee/',include('employee.urls')),
+    path('subcategory/',include('subcategory.urls'))
 ]

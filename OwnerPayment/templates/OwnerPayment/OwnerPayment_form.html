@@ -37,33 +37,45 @@
                     <label for="type">Type </label>
                     {% crispy_field form.type  %}
                   </div>
-                    <div class="form-group">
+                    <div class="form-group" id="bank1">
                     <label for="bank_name">Bank Name</label>
                     {% crispy_field form.bankname  %}
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" id="bank2">
                     <label for="bank_branch">Bank Branch </label>
                     {% crispy_field form.branchname %}
                   </div>
-                     <div class="form-group">
+                     <div class="form-group" id="bank3">
                     <label for="account_no">Account No. </label>
                     {% crispy_field form.acc  %}
                   </div>
-                     <div class="form-group">
+                     <div class="form-group" id="bank4">
                     <label for="ifsc_code">IFSC Code </label>
                     {% crispy_field form.ifsc  %}
                   </div>
-                     <div class="form-group">
+                     <div class="form-group" id="upi">
                     <label for="phone">Phone </label>
                     {% crispy_field form.phono %}
                   </div>
-                     <div class="form-group">
+                     <div class="form-group" id="upi1">
                     <label for="upi">UPI Id </label>
                     {% crispy_field form.upi  %}
                   </div>
                      <div class="form-group">
                     <label for="balance">Balance</label>
                     {% crispy_field form.balance  %}
+                  </div>
+                    <div class="form-group" id="cq">
+                    <label for="balance">Cheque Number</label>
+                    {% crispy_field form.cheque_no  %}
+                  </div>
+                    <div class="form-group" id="cq1">
+                    <label for="balance">Cheque date</label>
+                    {% crispy_field form.cheque_date  %}
+                  </div>
+                    <div class="form-group" id="cash">
+                    <label for="balance">Cash</label>
+                    {% crispy_field form.cash  %}
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -85,6 +97,62 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    <script>
+        document.addEventListener('DOMContenetLoaded',function (){
+            document.querySelector("#id_type").onchange=function (){
+                if(this.value=='cash')
+                {
+                    document.querySelector("#cash").style.display="block"
+                    document.querySelector("#bank1").style.display="none"
+                    document.querySelector("#bank2").style.display="none"
+                    document.querySelector("#bank3").style.display="none"
+                    document.querySelector("#bank4").style.display="none"
+                    document.querySelector("#upi").style.display="none"
+                    document.querySelector("#upi1").style.display="none"
+                    document.querySelector("#cq").style.display="none"
+                    document.querySelector("#cq1").style.display="none"
+
+
+                }
+                else if(this.value=='upi')
+                {
+                    document.querySelector("#cash").style.display="none"
+                    document.querySelector("#bank1").style.display="none"
+                    document.querySelector("#bank2").style.display="none"
+                    document.querySelector("#bank3").style.display="none"
+                    document.querySelector("#bank4").style.display="none"
+                    document.querySelector("#upi").style.display="block"
+                    document.querySelector("#upi1").style.display="block"
+                    document.querySelector("#cq").style.display="none"
+                    document.querySelector("#cq1").style.display="none"
+                }
+                else if(this.value=='netbank')
+                {
+                    document.querySelector("#cash").style.display="none"
+                    document.querySelector("#bank1").style.display="block"
+                    document.querySelector("#bank2").style.display="block"
+                    document.querySelector("#bank3").style.display="block"
+                    document.querySelector("#bank4").style.display="block"
+                    document.querySelector("#upi").style.display="none"
+                    document.querySelector("#upi1").style.display="none"
+                    document.querySelector("#cq").style.display="none"
+                    document.querySelector("#cq1").style.display="none"
+                }
+                else if(this.value=='check')
+                {
+                    document.querySelector("#cash").style.display="none"
+                    document.querySelector("#bank1").style.display="none"
+                    document.querySelector("#bank2").style.display="none"
+                    document.querySelector("#bank3").style.display="none"
+                    document.querySelector("#bank4").style.display="none"
+                    document.querySelector("#upi").style.display="none"
+                    document.querySelector("#upi1").style.display="none"
+                    document.querySelector("#cq").style.display="block"
+                    document.querySelector("#cq1").style.display="block"
+                }
+            }
+        })
+    </script>
 {% endblock %}
 {% block extra_js %}
     <!-- Summernote -->
