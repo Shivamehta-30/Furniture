@@ -28,5 +28,8 @@ urlpatterns = [
     path('supplier/',include('supplier.urls')),
     path('customer/',include('customer.urls')),
     path('Employee/',include('employee.urls')),
-    path('subcategory/',include('subcategory.urls'))
+    path('subcategory/',include('subcategory.urls')),
+    path('customerpayment/',include('customerpayment.urls')),
+    path('Supplierpayment/', include('Supplierpayment.urls'))
+
 ]

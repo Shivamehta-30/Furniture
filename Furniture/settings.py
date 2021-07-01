@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'customer',
     'employee',
     'subcategory',
+    'customerpayment',
+    'Supplierpayment',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

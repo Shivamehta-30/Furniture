@@ -357,7 +357,52 @@
               </li>
             </ul>
           </li>
-
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                Customer Payment
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'Customerpayment-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'Customerpayment-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                Supplier Payment
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'supplierpay-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'supplierpay-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="../kanban.html" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
