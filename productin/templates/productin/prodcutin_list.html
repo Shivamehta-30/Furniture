@@ -9,12 +9,12 @@
 
 {% endblock %}
 {% block header_title %}
-    Customer View
+    Product Inward Bill View
 {% endblock %}
 
 {% block breadcrumb %}
     <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Customer</a></li>
+              <li class="breadcrumb-item"><a href="#">Product Inward Bill</a></li>
               <li class="breadcrumb-item active">View</li>
             </ol>
 {% endblock %}
@@ -28,60 +28,58 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Customer Details</h3>
+                <h3 class="card-title">Product Inward Bill Records</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                      <th>ID</th>
-                      <th>Company Name</th>
-                      <th>Phone</th>
-                      <th>GST No.</th>
-                      <th>Email </th>
-                      <th>Remarks</th>
-                      <th>Action</th>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                      <th>Rate</th>
+                      <th>Price</th>
+                      <th>Discount</th>
+                      <th>GST</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                   {% for c in customers %}
+                   {% for mat in product %}
                        <tr>
-                           <td>{{ c.id }}</td>
-                           <td>{{ c.companyname }}</td>
-                           <td>{{ c.phoneno }}</td>
-                           <td>{{ c.GSTno }}</td>
-                           <td>{{ c.emailid }}</td>
-                           <td>{{ s.remark | safe}}</td>
-                           <td><a class="btn btn-info btn-sm" href="{% url 'Customer-update' c.id %}">
-                                  <i class="fas fa-pencil-alt">
-                                  </i>
-                                  Edit
-                              </a>
-                            <a class="btn btn-danger btn-sm" href="{% url 'Customer-delete' c.id %}">
-                                  <i class="fas fa-trash">
-                                  </i>
-                                  Delete
-                              </a>
-                            <a class="btn btn-success btn-sm" href="{% url 'Customer-detail' c.id %}">
-                                  <i class="fas fa-search">
-                                  </i>
-                                  Detail
-                              </a>
-                           </td>
+                       <td> {{ mat.id }}</td>
+                       <td>{{ mat.productname.name }}</td>
+                       <td>{{ mat.qun}}</td>
+                           <td>{{ mat.rate }}</td>
+                           <td>{{ mat.price }}</td>
+                           <td>{{ mat.discount }}</td>
+                           <td>{{ mat.GSTno }}</td>
+                       <td><a class="btn btn-info btn-sm" href="{% url 'prodinward-update' mat.id %}">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'prodinward-delete' mat.id %}">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                       </td>
 
                        </tr>
                    {% endfor %}
                   </tbody>
                   <tfoot>
                   <tr>
-                      <th>ID</th>
-                      <th>Company Name</th>
-                      <th>Phone</th>
-                      <th>GST No.</th>
-                      <th>Email </th>
-                      <th>Remarks</th>
-                      <th>Action</th>
+                   <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                      <th>Rate</th>
+                      <th>Price</th>
+                      <th>Discount</th>
+                      <th>GST</th>
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>

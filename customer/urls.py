@@ -4,6 +4,7 @@ urlpatterns=[
     path("new/", NewCustomer.as_view(), name="Customer-new"),
     path("view/", ViewCustomer.as_view(), name="Customer-view"),
     path("update/<int:pk>", UpdateCustomer.as_view(), name="Customer-update"),
-    path("delete/<int:pk>", DeleteCustomer.as_view(), name="Customer-delete")
+    path("delete/<int:pk>", DeleteCustomer.as_view(), name="Customer-delete"),
+    path("detail/<int:pk>", DetailCustomer.as_view(), name="Customer-detail")
 
 ]

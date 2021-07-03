@@ -6,12 +6,12 @@
 
 {% endblock %}
 {% block header_title %}
-    Product Delete
+   Product Inward Bill Delete
 {% endblock %}
 
 {% block breadcrumb %}
     <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Product</a></li>
+              <li class="breadcrumb-item"><a href="#">Product Inward Bill</a></li>
               <li class="breadcrumb-item active">Delete </li>
             </ol>
 {% endblock %}
@@ -33,18 +33,20 @@
                   {% csrf_token %}
                 <div class="card-body">
                   <ul>
-                  <li> Name : {{ object.name }}</li>
-                      <li>Model No. : {{ object.serno }}</li>
-                  <li> Material :  {{ object.materials.name}}</li>
-                  <li> Main Category : {{ object.maincategory.name }}</li>
-                      <li>Sub Category : {{ object.subcategory.name }}</li>
+                      <li> Product Name : {{ object.productname.name }}</li>
+                      <li>Quantity: {{ object.qun }} </li>
+                      <li> Rate :  {{ object.rates  }}</li>
+                      <li> Price : {{ object.prices }}</li>
+                      <li> Discount : {{ object.discounts  }}</li>
+                      <li> GST : {{ object.GSTno  }}</li>
+
               </ul>
 
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-danger">Delete</button>
-                  <a href="{% url 'product-new' %}" class="btn btn-info">Cancel</a>
+                  <a href="{% url 'prodoutward-view' %}" class="btn btn-info">Cancel</a>
                 </div>
               </form>
             </div>

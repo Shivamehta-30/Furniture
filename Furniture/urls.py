@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth.views import LoginView,LogoutView
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path("",LoginView.as_view(template_name='users/login.html'),name="login"),
     path("logout",LogoutView.as_view(template_name='users/logout.html'),name="logout"),
@@ -31,6 +32,9 @@ urlpatterns = [
     path('subcategory/',include('subcategory.urls')),
     path('customerpayment/',include('customerpayment.urls')),
     path('Supplierpayment/', include('Supplierpayment.urls')),
-    path('Product/',include('product.urls'))
+    path('product/',include('product.urls')),
+    path('productin/',include('productin.urls')),
+    path('productout',include('productout.urls'))
 
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
