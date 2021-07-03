@@ -14,7 +14,7 @@ class product(models.Model):
     qun=models.CharField(max_length=100)
     companyname=models.CharField(max_length=100)
     materials=models.ForeignKey(material,on_delete=models.CASCADE,related_name='material')
-    subcategory=models.ForeignKey(subcategory,on_delete=models.CASCADE,related_name=subcategory)
+    subcategory=models.ForeignKey(subcategory,on_delete=models.CASCADE,related_name='subcategory')
 
     def __str__(self):
         return f"{self.name}"
