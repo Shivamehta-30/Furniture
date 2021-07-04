@@ -3,7 +3,7 @@ from django.urls import reverse
 # Create your models here.
 class OwnerPayment(models.Model):
     choice = (
-        ('cash', 'cash'), ('netbank', 'netbank'), ('upi', 'upi'), ('check', 'check')
+        ('cash', 'cash'), ('netbank', 'netbank'), ('upi', 'upi'), ('cheque', 'cheque')
     )
     type=models.CharField(max_length=80 , choices=choice)
     bankname=models.CharField(max_length=80)

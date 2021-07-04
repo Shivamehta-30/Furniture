@@ -61,7 +61,7 @@
                     <label for="upi">UPI Id </label>
                     {% crispy_field form.upi  %}
                   </div>
-                     <div class="form-group">
+                     <div class="form-group" id="bal">
                     <label for="balance">Balance</label>
                     {% crispy_field form.balance  %}
                   </div>
@@ -74,7 +74,7 @@
                     {% crispy_field form.cheque_date  %}
                   </div>
                     <div class="form-group" id="cash">
-                    <label for="balance">Cash</label>
+                    <label for="balance">Amount</label>
                     {% crispy_field form.cash  %}
                   </div>
                 </div>
@@ -111,11 +111,12 @@
                 document.querySelector("#check1").style.display="none"
                 document.querySelector("#upi").style.display="none"
                 document.querySelector("#upi1").style.display="none"
-                document.querySelector("#supplier").style.display="block"
+                document.querySelector("#bal").style.display="none"
+
 
             }
             else if (this.value==='upi'){
-                document.querySelector("#cash").style.display="none"
+                document.querySelector("#cash").style.display="block"
                 document.querySelector("#bank").style.display="none"
                 document.querySelector("#bank1").style.display="none"
                 document.querySelector("#bank2").style.display="none"
@@ -124,10 +125,11 @@
                 document.querySelector("#check1").style.display="none"
                 document.querySelector("#upi").style.display="block"
                 document.querySelector("#upi1").style.display="block"
-                document.querySelector("#supplier").style.display="block"
+                document.querySelector("#bal").style.display="block"
+
             }
             else if(this.value==='cheque'){
-                document.querySelector("#cash").style.display="none"
+                document.querySelector("#cash").style.display="block"
                 document.querySelector("#bank").style.display="none"
                 document.querySelector("#bank1").style.display="none"
                 document.querySelector("#bank2").style.display="none"
@@ -136,10 +138,11 @@
                 document.querySelector("#check1").style.display="block"
                 document.querySelector("#upi").style.display="none"
                 document.querySelector("#upi1").style.display="none"
-                document.querySelector("#supplier").style.display="block"
+                document.querySelector("#bal").style.display="none"
+
             }
             else if(this.value==='netbank'){
-                document.querySelector("#cash").style.display="none"
+                document.querySelector("#cash").style.display="block"
                 document.querySelector("#bank").style.display="block"
                 document.querySelector("#bank1").style.display="block"
                 document.querySelector("#bank2").style.display="block"
@@ -148,7 +151,8 @@
                 document.querySelector("#check1").style.display="none"
                 document.querySelector("#upi").style.display="none"
                 document.querySelector("#upi1").style.display="none"
-                 document.querySelector("#supplier").style.display="block"
+                document.querySelector("#bal").style.display="block"
+
             }
         }
     })

@@ -4,5 +4,7 @@ urlpatterns=[
     path("new/", Newproduct.as_view(), name="product-new"),
     path("view/", Viewproduct.as_view(), name="product-view"),
     path("update/<int:pk>", Updateproduct.as_view(), name="product-update"),
-    path("delete/<int:pk>", Deleteproduct.as_view(), name="product-delete")
+    path("delete/<int:pk>", Deleteproduct.as_view(), name="product-delete"),
+    path("detail/<int:pk>", Detailproduct.as_view(), name="product-detail")
+
 ]

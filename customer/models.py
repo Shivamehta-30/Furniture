@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse
 # Create your models here.
 class customer(models.Model):
+    choice=(
+        ('Male','Male') , ('Female' , 'Female') ,('Other','Other')
+    )
     companyname=models.CharField(max_length=100,null=True,blank=True)
     firstname=models.CharField(max_length=100)
     middlename=models.CharField(max_length=100)
@@ -15,7 +18,7 @@ class customer(models.Model):
     country=models.CharField(max_length=100)
     phoneno=models.CharField(max_length=10)
     DOB=models.CharField(max_length=10)
-    gender=models.CharField(max_length=10)
+    gender=models.CharField(max_length=10 , choices=choice )
     GSTno=models.CharField(max_length=100,null=True,blank=True)
     emailid=models.CharField(max_length=100)
     contact_person_name=models.CharField(max_length=100)

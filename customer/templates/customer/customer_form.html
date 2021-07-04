@@ -5,6 +5,8 @@
 
     <!-- daterange picker -->
   <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css'%}">
+
 
 {% endblock %}
 {% block header_title %}
@@ -34,106 +36,111 @@
               <form id="quickForm" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                 <div class="card-body">
-
-
+                    <div class="row">
+                        <div class="col">
                   <div class="form-group">
                     <label for="name">Company Name </label>
                     {% crispy_field form.companyname  %}
-                  </div>
+                  </div></div>
+                        <div class="col">
                   <div class="form-group">
                     <label for="name">GST No. </label>
                     {% crispy_field form.GSTno  %}
-                  </div>
+                  </div></div></div>
                    <div class="row">
-                   <div class="col-md-6">
+                   <div class="col">
                   <div class="form-group">
                     <label for="description">First Name </label>
                       {% crispy_field form.firstname %} </div> </div>
-                       <div class="col-md-6">
+                       <div class="col">
                   <div class="form-group">
                     <label for="description">Middle Name </label>
                       {% crispy_field form.middlename %}</div></div>
-                    <div class="col-md-6">
+                    <div class="col">
                   <div class="form-group">
                       <label for="description">Last Name </label>
-                      {% crispy_field form.lastname %} </div></div>
-                       <div class="col-md-6">
+                      {% crispy_field form.lastname %} </div></div></div>
+                    <div class="row">
+                       <div class="col">
                         <div class="form-group">
                             <label for="name">Email ID </label>
-                            {% crispy_field form.emailid  %}</div></div></div>
-                     <div class="row">
-                   <div class="col-md-6">
+                            {% crispy_field form.emailid  %}</div></div>
+
+                   <div class="col">
                     <div class="form-group">
                     <label for="name">Phone </label>
-                        {% crispy_field form.phoneno  %}</div></div>
-                         <div class="col-md-6">
-                             {#                    date - picker#}
-                        <label>Date:</label>
+                        {% crispy_field form.phoneno  %}</div></div></div>
+                    <div class="row">
+                         <div class="col">
+
+                        <label>D.O.B:</label>
                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
                         {% crispy_field form.DOB %}
                         <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                     </div></div>
-                         <div class="col-md-6">
+                         <div class="col">
                     <div class="form-group">
                     <label for="name">Gender </label>
-                        {% crispy_field form.gender  %}</div></div></div>
-                     <div class="row">
-                   <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="description">Residence No. </label>
-                        {% crispy_field form.house_no %} </div></div>
-                         <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="description">Street  </label>
-                        {% crispy_field form.streetname %} </div></div>
-                         <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="description">Area </label>
-                        {% crispy_field form.areaname %} </div></div>
-                         <div class="col-md-6">
-                    <div class="form-group">
-                       <label for="description">City </label>
-                        {% crispy_field form.city %} </div></div>
-                         <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="description">Pincode  </label>
-                        {% crispy_field form.pincode %}</div></div>
-                         <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="description"> State </label>
-                        {% crispy_field form.state %}</div></div>
-                         <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="description"> Country </label>
-                        {% crispy_field form.country %}</div></div>
-                  </div>
+                        {% crispy_field form.gender  %}</div></div>
 
-                    <div class="row">
-                   <div class="col-md-6">
+                   <div class="col">
                     <div class="form-group">
                     <label for="contact_person_name">Document </label>
                         {% crispy_field form.documnets  %}</div></div>
-                        <div class="col-md-6">
+                        <div class="col">
                     <div class="form-group">
-                        <label for="contact_person_phone">Profile</label>
-                    {% crispy_field form.photo %}</div></div></div>
-
+                        <label for="contact_person_phone">Profile </label>
+                        {% crispy_field form.photo %}</div></div></div>
                     <div class="row">
-                   <div class="col-md-6">
+                   <div class="col">
                     <div class="form-group">
-                    <label for="contact_person_name">Contact Person Name </label>
-                        {% crispy_field form.contact_person_name  %}</div></div>
-                        </div>
-                    <label for="description">Remarks(Optional) </label>
-                    {% crispy_field form.remark  %}
-                </div>
+                    <label for="description">Residence No. </label>
+                        {% crispy_field form.house_no %} </div></div>
+                         <div class="col">
+                    <div class="form-group">
+                    <label for="description">Street  </label>
+                        {% crispy_field form.streetname %} </div></div>
+                         <div class="col">
+                    <div class="form-group">
+                    <label for="description">Area </label>
+                        {% crispy_field form.areaname %} </div></div></div>
+                    <div class="row">
+                         <div class="col">
+                            <div class="form-group">
+                               <label for="description">City </label>
+                                {% crispy_field form.city %} </div></div>
+                                 <div class="col">
+                            <div class="form-group">
+                            <label for="description">Pincode  </label>
+                                {% crispy_field form.pincode %}</div></div>
+                                 <div class="col">
+                            <div class="form-group">
+                            <label for="description"> State </label>
+                                {% crispy_field form.state %}</div></div>
+                                 <div class="col">
+                            <div class="form-group">
+                            <label for="description"> Country </label>
+                                {% crispy_field form.country %}</div></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                                <div class="form-group">
+                                    <label for="contact_person_name">Contact Person Name </label>
+                                    {% crispy_field form.contact_person_name  %}</div></div></div>
+                    <div class="form-group">
+                            <label for="description">Remarks(Optional) </label>
+                            {% crispy_field form.remark  %}
+                    </div>
+
+
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                </div></div>
               </form>
+
             </div>
             <!-- /.card -->
             </div>
@@ -148,7 +155,6 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
 {% endblock %}
 
 {% block extra_js %}
@@ -168,8 +174,17 @@ $(function () {
     $('#reservationdate').datetimepicker({
         format: 'YYYY-MM-DD'
     });
+     $(function () {
+    // Summernote
+    $('#id_remark').summernote()
+
+
+  })
 });
 </script>
+       <!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js'%}"></script>
+
 
 
 {% endblock %}

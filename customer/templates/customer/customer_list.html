@@ -38,9 +38,8 @@
                       <th>ID</th>
                       <th>Company Name</th>
                       <th>Phone</th>
-                      <th>GST No.</th>
+                      <th>Name</th>
                       <th>Email </th>
-                      <th>Remarks</th>
                       <th>Action</th>
                   </tr>
                   </thead>
@@ -50,9 +49,8 @@
                            <td>{{ c.id }}</td>
                            <td>{{ c.companyname }}</td>
                            <td>{{ c.phoneno }}</td>
-                           <td>{{ c.GSTno }}</td>
+                           <td>{{ c.firstname }} {{ c.lastname }}</td>
                            <td>{{ c.emailid }}</td>
-                           <td>{{ s.remark | safe}}</td>
                            <td><a class="btn btn-info btn-sm" href="{% url 'Customer-update' c.id %}">
                                   <i class="fas fa-pencil-alt">
                                   </i>
@@ -78,9 +76,8 @@
                       <th>ID</th>
                       <th>Company Name</th>
                       <th>Phone</th>
-                      <th>GST No.</th>
+                      <th>Name</th>
                       <th>Email </th>
-                      <th>Remarks</th>
                       <th>Action</th>
                   </tr>
                   </tfoot>
