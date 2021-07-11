@@ -34,6 +34,9 @@ urlpatterns = [
     path('Supplierpayment/', include('Supplierpayment.urls')),
     path('product/',include('product.urls')),
     path('productin/',include('productin.urls')),
-    path('productout',include('productout.urls'))
+    path('productout/',include('productout.urls')),
+    path('inward_purchase/', include('inward_purchase.urls')),
+    path('outward_purchase/', include('outward_purchase.urls'))
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

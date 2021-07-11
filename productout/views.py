@@ -1,18 +1,19 @@
-from  django.views.generic import CreateView,ListView,UpdateView,DeleteView
+from django.views.generic import CreateView,ListView,UpdateView,DeleteView
 from .models import *
 # Create your views here.
-class Newproductout(CreateView):
+class Newproduct(CreateView):
     model = prodoutward
-    fields = '__all__'
-
-class Viewproductout(ListView):
-    model = prodoutward
+    fields = ['productname', 'qun', 'rates', 'prices', 'discounts', 'GSTno']
     context_object_name = 'product'
 
-class Updateproductout(UpdateView):
+class Viewproduct(ListView):
+    model = prodoutward
+    context_object_name = 'prod'
+
+class Updateproduct(UpdateView):
     model = prodoutward
     fields = '__all__'
 
-class Deleteproductout(DeleteView):
+class Deleteproduct(DeleteView):
     model = prodoutward
-    success_url = '/productout/view'
+    success_url = '/outward_purchase/close'

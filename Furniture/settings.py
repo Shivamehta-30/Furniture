@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'product',
     'productin',
     'productout',
+    'inward_purchase',
+    'outward_purchase',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

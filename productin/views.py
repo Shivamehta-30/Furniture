@@ -3,11 +3,11 @@ from .models import *
 # Create your views here.
 class Newproductin(CreateView):
     model = prodcutin
-    fields = '__all__'
-
+    fields = ['productname', 'qun', 'rate', 'price', 'discount', 'GSTno']
+    context_object_name = 'product'
 class Viewproductin(ListView):
     model = prodcutin
-    context_object_name = 'product'
+    context_object_name = 'prod'
 
 class Updateproductin(UpdateView):
     model = prodcutin
@@ -15,4 +15,4 @@ class Updateproductin(UpdateView):
 
 class Deleteproductin(DeleteView):
     model = prodcutin
-    success_url = '/productin/view'
+    success_url = '/inward_purchase/closed'

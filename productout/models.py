@@ -9,9 +9,10 @@ class prodoutward(models.Model):
     prices = models.FloatField(max_length=100)
     discounts = models.FloatField(max_length=100, blank=True, null=True)
     GSTno = models.CharField(max_length=100, blank=True, null=True)
+    is_billed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.prices}"
 
     def get_absolute_url(self):
-        return reverse("prodoutward-view")
+        return reverse("close")

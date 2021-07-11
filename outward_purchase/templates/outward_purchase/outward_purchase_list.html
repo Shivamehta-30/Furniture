@@ -9,12 +9,12 @@
 
 {% endblock %}
 {% block header_title %}
-    Supplier View
+    Outward Purchase View
 {% endblock %}
 
 {% block breadcrumb %}
     <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Supplier</a></li>
+              <li class="breadcrumb-item"><a href="#">Outward Purchase</a></li>
               <li class="breadcrumb-item active">View</li>
             </ol>
 {% endblock %}
@@ -28,59 +28,60 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Supplier Details</h3>
+                <h3 class="card-title">   Outward Purchase Reports</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                      <th>ID</th>
-                      <th>Company Name</th>
-                      <th>Phone</th>
-                      <th>GST No.</th>
-                      <th>Email </th>
-                      <th>Remarks</th>
-                      <th>Action</th>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>total amount</th>
+                    <th>Due Amount</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                   {% for s in suppliers %}
+                   {% for mat in bills %}
                        <tr>
-                           <td>{{ s.id }}</td>
-                           <td>{{ s.companyname }}</td>
-                           <td>{{ s.phoneno }}</td>
-                           <td>{{ s.GSTno }}</td>
-                           <td>{{ s.emailid }}</td>
-                           <td>{{ s.remark | safe}}</td>
-                           <td><a class="btn btn-info btn-sm" href="{% url 'supplier-update' s.id %}">
-                                  <i class="fas fa-pencil-alt">
-                                  </i>
-                                  Edit
-                              </a>
-                            <a class="btn btn-danger btn-sm" href="{% url 'supplier-delete' s.id %}">
-                                  <i class="fas fa-trash">
-                                  </i>
-                                  Delete
-                              </a>
-                           </td>
+                       <td> {{ mat.id }}</td>
+                       <td>{{ mat.date }}</td>
+                       <td>{{ mat.total}}</td>
+                       <td>{{ mat.due_amount }}</td>
+
+                       <td><a class="btn btn-info btn-xs" href="{% url 'purchase-update' mat.id %}">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                                <a class="btn btn-success btn-xs" href="{% url 'purchase-detail' mat.id %}">
+                                     <i class="fas fa-file-archive">
+                                     </i>
+                                    Detail
+                                </a>
+                       <a class="btn btn-danger btn-xs" href="{% url 'purchase-delete' mat.id %}">
+                           <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                       </td>
 
                        </tr>
                    {% endfor %}
                   </tbody>
                   <tfoot>
                   <tr>
-                      <th>ID</th>
-                      <th>Company Name</th>
-                      <th>Phone</th>
-                      <th>GST No.</th>
-                      <th>Email </th>
-                      <th>Remarks</th>
-                      <th>Action</th>
+                   <th>ID</th>
+                    <th>Date</th>
+                    <th>total amount</th>
+                    <th>Due Amount</th>
+
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>
-              </div>
+                </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

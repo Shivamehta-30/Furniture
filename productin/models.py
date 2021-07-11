@@ -10,10 +10,10 @@ class prodcutin(models.Model):
     price=models.FloatField(max_length=1000)
     GSTno=models.CharField(max_length=100,null=True,blank=True)
     discount=models.FloatField(max_length=100,null=True,blank=True)
+    is_billed=models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.productname}"
 
     def get_absolute_url(self):
-        return reverse("prodinward-view")
-
+        return reverse("closed")

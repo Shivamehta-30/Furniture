@@ -16,4 +16,4 @@ class UpdateSupplier(UpdateView):
 
 class DeleteSupplier(DeleteView):
     model = supplier
-    success_url = '/material/view'
+    success_url = '/supplier/view'
