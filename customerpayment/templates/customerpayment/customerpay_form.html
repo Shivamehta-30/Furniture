@@ -35,6 +35,16 @@
                 <div class="card-body">
                     <div class="row">
         {#                        col - 1 #}
+                        <div class="col-3">
+                            <div class="form-group" id="bank">
+                                <label for="bank_name">Date</label>
+                            {% crispy_field form.date %}
+                          </div></div>
+                        <div class="col-3">
+                            <div class="form-group" id="bank">
+                                <label for="inward">Outward Purchase Bill</label>
+                                {% crispy_field form.bill %}
+                          </div></div>
                                 <div class="col">
                           <div class="form-group">
                             <label for="type">Type </label>

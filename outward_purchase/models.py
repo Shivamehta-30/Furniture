@@ -17,7 +17,7 @@ class outward_purchase(models.Model):
     due_amount = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.id} - {self.date}"
+        return f"{self.id}"
 
     def get_absolute_url(self):
         return reverse('purchase-view')

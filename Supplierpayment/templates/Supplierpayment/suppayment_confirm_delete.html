@@ -33,6 +33,8 @@
                   {% csrf_token %}
                 <div class="card-body">
                   <ul>
+                      <li> Date : {{ object.date }}</li>
+                      <li> Inward Bill : {{ object.bill }}</li>
                       <li> Type : {{ object.type }}</li>
                       <li>Supplier Name : {{ object.sup.company_name }}</li>
                       <li> Bank Name : <br> {{ object.bank_name  }}</li>

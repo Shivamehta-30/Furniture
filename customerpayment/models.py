@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from customer.models import customer
+from datetime import datetime
+from outward_purchase.models import outward_purchase
 # Create your models here.
 class customerpay(models.Model):
     choice = (
@@ -17,6 +19,9 @@ class customerpay(models.Model):
     check_no = models.CharField(max_length=30, default='', null=True, blank=True)
     check_date = models.CharField(max_length=35, default='', null=True, blank=True)
     cus = models.ForeignKey(customer, on_delete=models.CASCADE, related_name="customer")
+    date = models.DateField(default=datetime.utcnow())
+    bill = models.ForeignKey(outward_purchase, on_delete=models.CASCADE, related_name='bills', default='')
+
 
     def __str__(self):
         return f"{self.cash}"

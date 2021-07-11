@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from supplier.models import supplier
+from inward_purchase.models import inward_purchase
+from datetime import datetime
 # Create your models here.
 class suppayment(models.Model):
     choice = (
@@ -17,9 +19,11 @@ class suppayment(models.Model):
     check_no = models.CharField(max_length=30, default='', null=True, blank=True)
     check_date = models.CharField(max_length=35, default='', null=True, blank=True)
     sup = models.ForeignKey(supplier, on_delete=models.CASCADE, related_name="supplier")
+    date =models.DateField(default=datetime.utcnow())
+    bill = models.ForeignKey(inward_purchase,on_delete=models.CASCADE,related_name='bill',default='')
 
     def __str__(self):
-        return f"{self.cash}"
+        return f"{self.type}"
 
     def get_absolute_url(self):
         return reverse("supplierpay-view")

@@ -37,6 +37,8 @@
                   <tr>
                       <th>ID</th>
                       <th>Type</th>
+                      <th>Date</th>
+                      <th>Inward Bill</th>
                       <th>Supplier Name</th>
                       <th>Bank Name</th>
                       <th>Bank Branch</th>
@@ -52,6 +54,8 @@
                        <tr>
                            <td> {{ pay.id }}</td>
                            <td>{{ pay.type }}</td>
+                           <td>{{ pay.date }}</td>
+                           <td>{{ pay.bill.id }}</td>
                            <td>{{ pay.sup.company_name }}</td>
                            <td>{{ pay.bank_name}}</td>
                            <td>{{ pay.bank_branch }}</td>
@@ -79,6 +83,8 @@
                   <tr>
                       <th>ID</th>
                       <th>Type</th>
+                      <th>Date</th>
+                      <th>Inward Bill</th>
                       <th>Supplier Name</th>
                       <th>Bank Name</th>
                       <th>Bank Branch</th>

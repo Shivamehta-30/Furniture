@@ -37,6 +37,8 @@
                   <tr>
                       <th>ID</th>
                       <th>Type</th>
+                      <th>Date</th>
+                      <th>Outward Bill</th>
                       <th>Customer Name</th>
                       <th>Bank Name</th>
                       <th>Bank Branch</th>
@@ -52,6 +54,8 @@
                        <tr>
                            <td> {{ pay.id }}</td>
                            <td>{{ pay.type }}</td>
+                           <td>{{ pay.date }}</td>
+                           <td>{{ pay.bill }}</td>
                            <td>{{ pay.cus.first_name }} {{ pay.cus.last_name }}</td>
                            <td>{{ pay.bank_name}}</td>
                            <td>{{ pay.bank_branch }}</td>
