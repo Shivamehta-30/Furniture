@@ -8,8 +8,8 @@ class prodcutin(models.Model):
     rate=models.FloatField(max_length=100)
     qun=models.CharField(max_length=1000)
     price=models.FloatField(max_length=1000)
-    GSTno=models.CharField(max_length=100,null=True,blank=True)
-    discount=models.FloatField(max_length=100,null=True,blank=True)
+    GSTno=models.CharField(default=0,max_length=100,null=True,blank=True)
+    discount=models.FloatField(default=0,max_length=100,null=True,blank=True)
     is_billed=models.BooleanField(default=False)
 
     def __str__(self):

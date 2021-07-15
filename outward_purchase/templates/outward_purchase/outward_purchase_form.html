@@ -42,7 +42,7 @@
                     </div>
                      <div class="col-4">
                             <div class="form-group">
-                            <label for="name">Customer</label>
+                            <label for="name">Customer </label>
                             {% crispy_field form.cus  %}
                           </div>
                     </div>
@@ -62,32 +62,32 @@
 
                                  <div class="form-group">
                                     <label for="description">total amount </label>
-                                    {% crispy_field form.total %}
+                                    {% crispy_field form.total 'value' total %}
                                   </div>
 
 
 
                                 <div class="form-group">
-                                <label for="description">GST </label>
+                                <label for="description" id="gst_l">GST </label>
                                 {% crispy_field form.gst %}
                         </div>
 
 
                         <div class="form-group">
-                        <label for="description">Discount </label>
+                        <label for="description" id="discount_l">Discount </label>
                             {% crispy_field form.discount %}
                         </div>
 
 
                         <div class="form-group">
                         <label for="description">Net Amount </label>
-                        {% crispy_field form.net_amount %}
+                        {% crispy_field form.net_amount 'value' total %}
                         </div>
 
 
                             <div class="form-group">
                             <label for="description"> Due amount</label>
-                            {% crispy_field form.due_amount %}
+                            {% crispy_field form.due_amount 'value' total %}
                           </div>
 
 
@@ -123,6 +123,24 @@
     <!-- /.content -->
 {% endblock %}
 {% block extra_js %}
+    <script>
+      document.addEventListener('DOMContentLoaded',function(){
+          document.querySelector("#id_gst").focusout=function(){
+              let gst=document.querySelector("#id_gst").value;
+              document.querySelector("#gst_l").innerHTML=` GST ${gst}%`;
+              let total_amount=document.querySelector("#id_total").value;
+              document.querySelector("#id_gst").value=(gst*total_amount)/100;
 
+          }
+          // for inward purchase discount
+          document.querySelector("#id_discount").focusout=function(){
 
-{% endblock %} 
+              let discount=document.querySelector("#id_discount").value;
+              document.querySelector("#discount_l").innerHTML=` Discount ${discount}%`;
+              let total_amount=document.querySelector("#id_total").value;
+              document.querySelector("#id_discount").value=(discount*total_amount)/100;
+
+          }
+      })
+    </script>
+{% endblock %}

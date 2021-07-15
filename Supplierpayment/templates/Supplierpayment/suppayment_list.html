@@ -40,12 +40,6 @@
                       <th>Date</th>
                       <th>Inward Bill</th>
                       <th>Supplier Name</th>
-                      <th>Bank Name</th>
-                      <th>Bank Branch</th>
-                      <th>Account No.</th>
-                      <th>IFSC Code</th>
-                      <th>Phone</th>
-                      <th>UPI Id</th>
                       <th>Action</th>
                   </tr>
                   </thead>
@@ -56,14 +50,7 @@
                            <td>{{ pay.type }}</td>
                            <td>{{ pay.date }}</td>
                            <td>{{ pay.bill.id }}</td>
-                           <td>{{ pay.sup.company_name }}</td>
-                           <td>{{ pay.bank_name}}</td>
-                           <td>{{ pay.bank_branch }}</td>
-                           <td>{{ pay.account_no }}</td>
-                           <td>{{ pay.ifsc_code }}</td>
-                           <td>{{ pay.phone }}</td>
-                           <td>{{ pay.upi }}</td>
-                           <td>{{ pay.balance }}</td>
+                           <td>{{ pay.sup.firstname }}</td>
                            <td><a class="btn btn-info btn-sm" href="{% url 'supplierpay-update' pay.id %}">
                                   <i class="fas fa-pencil-alt">
                                   </i>
@@ -86,12 +73,6 @@
                       <th>Date</th>
                       <th>Inward Bill</th>
                       <th>Supplier Name</th>
-                      <th>Bank Name</th>
-                      <th>Bank Branch</th>
-                      <th>Account No.</th>
-                      <th>IFSC Code</th>
-                      <th>Phone</th>
-                      <th>UPI Id</th>
                       <th>Action</th>
                   </tr>
                   </tfoot>

@@ -7,12 +7,12 @@ class prodoutward(models.Model):
     qun = models.CharField(max_length=100)
     rates = models.FloatField(max_length=100)
     prices = models.FloatField(max_length=100)
-    discounts = models.FloatField(max_length=100, blank=True, null=True)
-    GSTno = models.CharField(max_length=100, blank=True, null=True)
+    discounts = models.FloatField(default=0,max_length=100, blank=True, null=True)
+    GSTno = models.CharField(default=0,max_length=100, blank=True, null=True)
     is_billed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.prices}"
 
     def get_absolute_url(self):
-        return reverse("close")
+        return reverse("closed")

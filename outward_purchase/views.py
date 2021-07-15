@@ -12,11 +12,16 @@ class NewInwardBill(CreateView):
     success_url = '/outward_purchase/view'
 
     def get_context_data(self, **kwargs):
+        from django.db.models import Sum
+        from django.db.models import aggregates
         context = super().get_context_data(**kwargs)
         context["products"] = prodoutward.objects.filter(is_billed=False).all()
+        result = prodoutward.objects.filter(is_billed=False).aggregate(Sum('prices'))
+        context["total"] = result['prices__sum']
         return context
 
-    def form_valid(self, form):
+
+def form_valid(self, form):
         print("inside  form valid before save")
         self.object = form.save()
         print("inside  form valid")

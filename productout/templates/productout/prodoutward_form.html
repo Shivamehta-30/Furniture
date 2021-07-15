@@ -18,6 +18,13 @@
                   <div class="form-group">
                     <label for="name">Product Name - {{ form.id }}</label>
                     {% crispy_field form.productname  %}
+                      <div>
+                           {%  if form.productname.errors  %}
+                               {% for error in form.productname.errors %}
+                                   <span class="invalid-feedback"> {{  error }}</span>
+                               {% endfor %}
+                          {% endif %}
+                      </div>
                   </div></div>
                             <div class="col">
                                   <div class="form-group">
@@ -38,7 +45,7 @@
                     </div></div>
                         <div class="col">
                     <div class="form-group">
-                    <label for="description"> Discount </label>
+                    <label for="description" >Discount </label>
                     {% crispy_field form.discounts %}
                     </div></div>
                         <div class="col">
@@ -66,3 +73,38 @@
  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script>
+    // for price calculations
+    document.addEventListener('DOMContentLoaded',function(){
+
+        // for rate
+         document.querySelector("#id_rates").focusout=function(){
+             let qty=document.querySelector("#id_qun").value;
+             let rate=document.querySelector("#id_rates").value;
+             document.querySelector("#id_prices").value=rate*qty;
+
+         }
+         // for discount
+         document.querySelector("#id_discount").focusout=function(){
+             let qty=document.querySelector("#id_qun").value;
+             let rate=document.querySelector("#id_rates").value;
+             let price=qty*rate;
+             let discount=this.value;  //
+             let gst=document.querySelector("#id_GSTno").value;
+             document.querySelector("#id_prices").value=price+((price*gst)/100)-((price*discount)/100);
+
+         }
+         // for gst
+        document.querySelector("#id_GSTno").focusout=function(){
+             let qty=document.querySelector("#id_qun").value;
+             let rate=document.querySelector("#id_rates").value;
+             let price=qty*rate;
+             let gst=this.value;  // 10
+             let discount=document.querySelector("#id_discount").value;
+             document.querySelector("#id_prices").value=price+((price*gst)/100)-((price*discount)/100);
+
+         }
+
+    })
+
+</script>

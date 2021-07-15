@@ -16,4 +16,4 @@ class Updateproduct(UpdateView):
 
 class Deleteproduct(DeleteView):
     model = prodoutward
-    success_url = '/outward_purchase/close'
+    success_url = '/outward_purchase/closed'
