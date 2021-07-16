@@ -49,10 +49,6 @@
                         <label for="name">Amount</label>
                         {% crispy_field form.cash %}
                      </div>
-                     <div class="form-group" id="supplier">
-                        <label for="name">Please Select Supplier</label>
-                        {% crispy_field form.sup %}
-                     </div>
                      <div class="form-group" id="bank">
                         <label for="name">Bank Name</label>
                         {% crispy_field form.bank_name %}
@@ -82,7 +78,7 @@
                         {% crispy_field form.check_no %}
                      </div>
 
-                     <div class="form-group" id="check1" data-target-input="nearest">
+                     <div class="form-group" id="check1">
                         <label>Cheque Date</label>
                          {% crispy_field form.check_date %}
                      </div>

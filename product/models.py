@@ -11,7 +11,7 @@ class product(models.Model):
     maincategory=models.ForeignKey(category,on_delete=models.CASCADE,related_name='category')
     size=models.CharField(max_length=100)
     color=models.CharField(max_length=100)
-    qun=models.CharField(max_length=100)
+    qun=models.IntegerField(default=0)
     companyname=models.CharField(max_length=100)
     materials=models.ForeignKey(material,on_delete=models.CASCADE,related_name='material')
     subcategory=models.ForeignKey(subcategory,on_delete=models.CASCADE,related_name='subcategory')

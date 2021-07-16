@@ -26,7 +26,7 @@ class NewInwardBill(CreateView):
         print("inside  form valid")
         for product in prodcutin.objects.filter(is_billed=False).all():
             self.object.products.add(product)
-            product.productname.qun+=product.qun
+            product.productname.qun = int(product.productname.qun) + int(product.qun)
             product.is_billed=True
             product.save()
 

@@ -8,13 +8,13 @@ class NewPayment(CreateView):
 
     def form_valid(self, form):
         self.object = form.save()
-        self.object.bills.due_amount = self.object.bills.net_amount - self.object.cash
-        if self.object.bills.due_amount < 0:
-            self.object.bills.due_amount = self.object.bills.net_amount
+        self.object.bill.due_amount = self.object.bill.net_amount - self.object.cash
+        if self.object.bill.due_amount < 0:
+            self.object.bill.due_amount = self.object.bill.net_amount
             self.object.delete()
             return HttpResponseRedirect('/supplierpay/new/')
         else:
-            self.object.bills.save()
+            self.object.bill.save()
             return HttpResponseRedirect(self.get_success_url())
 
 class ViewPayment(ListView):
@@ -31,6 +31,6 @@ class DeletePayment(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.bills.due_amount = self.object.bills.due_amount + self.object.cash
-        self.object.bills.save()
+        self.object.bill.due_amount = self.object.bill.due_amount + self.object.cash
+        self.object.bill.save()
         return super(DeletePayment, self).delete(request, *args, **kwargs)
