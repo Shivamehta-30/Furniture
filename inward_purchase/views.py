@@ -27,9 +27,9 @@ class NewInwardBill(CreateView):
         for product in prodcutin.objects.filter(is_billed=False).all():
             self.object.products.add(product)
             product.productname.qun = int(product.productname.qun) + int(product.qun)
-            product.is_billed=True
+            product.productname.save()
+            product.is_billed = True
             product.save()
-
 
         self.object.save()
         print("object is saved")

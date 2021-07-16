@@ -21,15 +21,16 @@ class NewInwardBill(CreateView):
         return context
 
 
-def form_valid(self, form):
+    def form_valid(self, form):
         print("inside  form valid before save")
         self.object = form.save()
         print("inside  form valid")
         for product in prodoutward.objects.filter(is_billed=False).all():
             self.object.products.add(product)
-            product.is_billed=True
+            product.productname.qun = int(product.productname.qun) - int(product.qun)
+            product.productname.save()
+            product.is_billed = True
             product.save()
-
 
         self.object.save()
         print("object is saved")
@@ -44,6 +45,15 @@ class UpdatePurchaseBill(UpdateView):
     model = outward_purchase
     fields = ['date', 'cus', 'total', 'net_amount', 'gst', 'discount', 'due_amount']
     success_url = '/outward_purchase/view'
+
+    def get_context_data(self, **kwargs):
+        from django.db.models import Sum
+        from django.db.models import aggregates
+        context = super().get_context_data(**kwargs)
+        context["products"] = self.object.products.all()
+        result = prodoutward.objects.filter(is_billed=False).aggregate(Sum('prices'))
+        context["total"] = result['prices__sum']
+
 
 class DeletePurchaseBill(DeleteView):
     model = outward_purchase
