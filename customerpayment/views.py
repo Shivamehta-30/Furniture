@@ -1,9 +1,9 @@
 from django.views.generic import CreateView,ListView,UpdateView,DeleteView
 from .models import *
 from django.http import HttpResponseRedirect
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
-class NewCustomerPayment(CreateView):
+class NewCustomerPayment(CreateView,LoginRequiredMixin):
     model = customerpay
     fields = '__all__'
 
@@ -17,15 +17,15 @@ class NewCustomerPayment(CreateView):
         else:
             self.object.bill.save()
             return HttpResponseRedirect(self.get_success_url())
-class ViewCustomerPayment(ListView):
+class ViewCustomerPayment(ListView,LoginRequiredMixin):
     model = customerpay
     context_object_name = 'customerpay'
 
-class UpdateCustomerPayment(UpdateView):
+class UpdateCustomerPayment(UpdateView,LoginRequiredMixin):
     model = customerpay
     fields = '__all__'
 
-class DeleteCustomerPayment(DeleteView):
+class DeleteCustomerPayment(DeleteView,LoginRequiredMixin):
     model = customerpay
     success_url = '/Customerpayment/view'
 

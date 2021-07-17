@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'productout',
     'inward_purchase',
     'outward_purchase',
+    'loss',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,3 +145,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL='user-home'
+LOGIN_URL='login'

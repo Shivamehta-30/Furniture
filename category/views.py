@@ -1,20 +1,21 @@
 from django.shortcuts import render
 from django.views.generic import CreateView,ListView,UpdateView,DeleteView
 from .models import category
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class NewCategory(CreateView):
+class NewCategory(LoginRequiredMixin,CreateView):
     model = category
     fields = '__all__'
 
-class ViewCategory(ListView):
+class ViewCategory(LoginRequiredMixin,ListView):
     model = category
     context_object_name = 'categories'
 
-class UpdateCategory(UpdateView):
+class UpdateCategory(LoginRequiredMixin,UpdateView):
     model = category
     fields = '__all__'
 
-class DeleteCategory(DeleteView):
+class DeleteCategory(LoginRequiredMixin,DeleteView):
     model = category
     success_url='/category/view'

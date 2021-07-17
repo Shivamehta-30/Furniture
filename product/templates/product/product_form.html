@@ -26,120 +26,65 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" method="post">
+              <form id="quickForm" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                 <div class="card-body">
-                <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <label for="name">Name </label>
-                    {% crispy_field form.name  %}
-                      {% if form.name.errors %}
-                        {% for error in form.name.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                  </div></div>
-                <div class="col">
-                <div class="form-group">
-                    <label for="name">Model No. </label>
-                    {% crispy_field form.serno  %}
-                      {% if form.serno.errors %}
-                        {% for error in form.serno.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                </div></div></div>
-                <div class="row">
-                <div class="col">
                     <div class="form-group">
-                    <label for="name">Main Category </label>
-                    {% crispy_field form.maincategory  %}
-                         {% if form.maincategory.errors %}
-                        {% for error in form.maincategory.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                    </div></div>
-                <div class="col">
-                <div class="form-group">
-                    <label for="name">Sub Category </label>
-                    {% crispy_field form.subcategory  %}
-                         {% if form.subcategory.errors %}
-                        {% for error in form.subcategory.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                </div></div>
-                <div class="col">
-                <div class="form-group">
-                    <label for="name">Materials </label>
-                    {% crispy_field form.materials  %}
-                         {% if form.materials.errors %}
-                        {% for error in form.materials.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                </div></div></div>
-                <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <label for="description">Size </label>
-                    {% crispy_field form.size %}
-                      {% if form.size.errors %}
-                        {% for error in form.size.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                  </div></div>
-                <div class="col">
-                <div class="form-group">
-                    <label for="name">Quantity </label>
-                    {% crispy_field form.qun  %}
-                      {% if form.qun.errors %}
-                        {% for error in form.qun.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                </div></div>
-                <div class="col">
+                        <label for="name">Product Name</label>
+                        {% crispy_field form.name %}
+                     </div>
                     <div class="form-group">
-                    <label for="name">Color </label>
-                    {% crispy_field form.color  %}
-                      {% if form.color.errors %}
-                        {% for error in form.color.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                    </div></div>
-                <div class="col">
-                <div class="form-group">
-                    <label for="name">Product Company Name </label>
-                    {% crispy_field form.companyname  %}
-                      {% if form.companyname.errors %}
-                        {% for error in form.companyname.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                      {% endif %}
-                  </div>
+                        <label for="name">PLease select Material</label>
+                        {% crispy_field form.materials %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Please Select Category</label>
+                        {% crispy_field form.maincategory %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Please Select Subcategory</label>
+                        {% crispy_field form.subcategory %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Model Number</label>
+                        {% crispy_field form.serno %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Quantity</label>
+                        {% crispy_field form.qun %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Comapany Name</label>
+                        {% crispy_field form.companyname %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Enter Size</label>
+                        {% crispy_field form.size %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Color</label>
+                        {% crispy_field form.color %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Front View </label>
+                        {% crispy_field form.photo1 %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Back View </label>
+                        {% crispy_field form.photo2 %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Right Side View</label>
+                        {% crispy_field form.photo3 %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Left Side View </label>
+                        {% crispy_field form.photo4 %}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Top View </label>
+                        {% crispy_field form.photo5 %}
+                    </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

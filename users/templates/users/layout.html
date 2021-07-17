@@ -25,7 +25,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
       </li>
     </ul>
 
@@ -63,7 +63,7 @@
           <img src="{% static 'dist/img/avatar5.png' %}" class="img-circle elevation-2">
         </div>
         <div class="info">
-          <a href="#" class="d-block" style="color: snow">MR SHIVAM MEHTA</a>
+          <a href="#" class="d-block" style="color: snow">{{ user.username }}</a>
         </div>
       </div>
 
@@ -98,14 +98,34 @@
             </ul>
           </li>
           <li class="nav-item">
-
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-bag"></i>
+              <p>
+                Subcategory
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'subcategory-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'subcategory-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Material
                 <i class="fas fa-angle-left right"></i>
-
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -122,6 +142,29 @@
                 </a>
               </li>
             </ul>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Product Details
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'product-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'product-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa fa-dollar-sign"></i>
@@ -143,7 +186,52 @@
                   <p>View</p>
                 </a>
               </li>
-
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-dollar-sign"></i>
+              <p>
+                Customer Payment
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'Customerpayment-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'Customerpayment-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-dollar-sign"></i>
+              <p>
+                Supplier Payment
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'supplierpay-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'supplierpay-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -167,7 +255,6 @@
                   <p>View</p>
                 </a>
               </li>
-
             </ul>
           </li>
           <li class="nav-item">
@@ -218,101 +305,9 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-shopping-bag"></i>
-              <p>
-                Subcategory
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{% url 'subcategory-new' %} " class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'subcategory-view' %}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-dollar-sign"></i>
-              <p>
-                Customer Payment
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{% url 'Customerpayment-new' %} " class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'Customerpayment-view' %}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-dollar-sign"></i>
-              <p>
-                Supplier Payment
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{% url 'supplierpay-new' %} " class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'supplierpay-view' %}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-shopping-cart"></i>
-              <p>
-                Product Details
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{% url 'product-new' %} " class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'product-view' %}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file-invoice"></i>
               <p>
-                Inward Purchase Bill
+                Purchase Bill
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -335,7 +330,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file-invoice"></i>
               <p>
-                Outward Purchase Bill
+                Sales Bill
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -348,6 +343,28 @@
               </li>
               <li class="nav-item">
                 <a href="{% url 'purchase-view' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+            </ul>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-file-invoice"></i>
+              <p>
+                Loss
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'loss-new' %} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'loss-view' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View</p>
                 </a>

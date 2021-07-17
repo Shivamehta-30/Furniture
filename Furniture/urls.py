@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.contrib.auth.views import LoginView,LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from users.views import dashboard
 urlpatterns = [
     path("",LoginView.as_view(template_name='users/login.html'),name="login"),
     path("logout",LogoutView.as_view(template_name='users/logout.html'),name="logout"),
@@ -36,7 +37,9 @@ urlpatterns = [
     path('productin/',include('productin.urls')),
     path('productout/',include('productout.urls')),
     path('inward_purchase/', include('inward_purchase.urls')),
-    path('outward_purchase/', include('outward_purchase.urls'))
+    path('outward_purchase/', include('outward_purchase.urls')),
+    path('loss/', include('loss.urls')),
+    path("dashboard/",dashboard,name="dashboard")
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

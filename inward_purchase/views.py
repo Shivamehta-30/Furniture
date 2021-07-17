@@ -4,9 +4,10 @@ from productin.models import prodcutin
 from django import forms
 from .models import inward_purchase
 from django.views.generic import CreateView,ListView,DetailView,DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class NewInwardBill(CreateView):
+class NewInwardBill(LoginRequiredMixin,CreateView):
     model = inward_purchase
     fields = ['date','spp','total','net_amount','gst','discount','due_amount']
     success_url = '/inward_purchase/view'
@@ -36,11 +37,11 @@ class NewInwardBill(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class ViewPurchaseBill(ListView):
+class ViewPurchaseBill(LoginRequiredMixin,ListView):
     model = inward_purchase
     context_object_name = "bills"
 
-class UpdatePurchaseBill(UpdateView):
+class UpdatePurchaseBill(LoginRequiredMixin,UpdateView):
     model = inward_purchase
     fields = ['date', 'spp', 'total', 'net_amount', 'gst', 'discount', 'due_amount']
     success_url = '/inward_purchase/view'
@@ -53,12 +54,12 @@ class UpdatePurchaseBill(UpdateView):
         result = prodcutin.objects.filter(is_billed=False).aggregate(Sum('price'))
         context["total"] = result['price__sum']
 
-class DeletePurchaseBill(DeleteView):
+class DeletePurchaseBill(LoginRequiredMixin,DeleteView):
     model = inward_purchase
     success_url = '/inward_purchase/view'
 
 
-class DetailPurchaseBill(DetailView):
+class DetailPurchaseBill(LoginRequiredMixin,DetailView):
     model = inward_purchase
 
 def closewindow(request):
