@@ -3,6 +3,7 @@ from django.urls import reverse
 from datetime import datetime
 from outward_purchase.models import outward_purchase
 from django.core.validators import MinValueValidator
+from customer.models import customer
 # Create your models here.
 class customerpay(models.Model):
     choice = (

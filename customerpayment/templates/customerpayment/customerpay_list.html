@@ -50,10 +50,15 @@
                            <td>{{ pay.type }}</td>
                            <td>{{ pay.date }}</td>
                            <td>{{ pay.bill.id }}</td>
-                           <td><a class="btn btn-outlie-info btn-sm" href="{% url 'Customerpayment-update' pay.id %}">
+                           <td><a class="btn btn-outline-info btn-sm" href="{% url 'Customerpayment-update' pay.id %}">
                                   <i class="fas fa-pencil-alt">
                                   </i>
                                   Edit
+                              </a>
+                            <a class="btn btn-outline-success btn-sm" href="{% url 'Customerpayment-detail' pay.id %}">
+                                  <i class="fas fa-search-alt">
+                                  </i>
+                                  Detail
                               </a>
                             <a class="btn btn-outline-danger btn-sm" href="{% url 'Customerpayment-delete' pay.id %}">
                                   <i class="fas fa-trash">

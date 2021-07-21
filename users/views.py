@@ -7,10 +7,14 @@ from outward_purchase.models import outward_purchase
 from inward_purchase.models import inward_purchase
 from loss.models import loss
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+@login_required
 def home(request):
     return render(request,"users/home.html")
 
+@login_required
 def dashboard(request):
     no_of_products=product.objects.count()
     no_of_customer=customer.objects.count()

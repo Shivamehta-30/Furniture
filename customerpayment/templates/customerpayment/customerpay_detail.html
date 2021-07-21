@@ -1,0 +1,58 @@
+{% extends "users/layout.html" %}
+{% load static  %}
+{% load crispy_forms_field %}
+{% block extra_css %}
+     <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
+
+{% endblock %}
+{% block header_title %}
+    Payment Detail
+{% endblock %}
+{% block breadcrumb %}
+    <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Customer Payment</a></li>
+              <li class="breadcrumb-item active">detail</li>
+            </ol>
+{% endblock %}
+{% block body%}
+<div class="card card-solid">
+        <div class="card-body pb-0">
+          <div class="row d-flex align-items-stretch">
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+              <div class="card bg-light">
+                <div class="card-header text-muted border-bottom-0">
+                  Customer ID : {{ object.id }}
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h4 class="lead"> <b>Name : {{object.bill.cus.firstname}} {{ object.bill.cus.lastname }} </b></h4>
+                      <p class="lead"><b>Due Payment :</b> {{ object.bill.due_amount }}₹</p>
+                      <p class="lead"><b>Total Amount :</b> {{ object.bill.net_amount }}₹</p>
+                      <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                            Address: {{ object.bill.cus.house_no }} {{object.bill.cus.streetname}}
+                                     {{ object.bill.cus.areaname }} {{ object.bill.cus.city }}
+                        </li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone : {{ object.bill.cus.phoneno }}</li>
+                      </ul>
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src="{% static 'dist/img/elegant-furniture-logo-with-lamp_23-2148477392.jpg' %}" alt="user-avatar" class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="{% url 'printbill' object.id %}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+{% endblock %}
