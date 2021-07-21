@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView,ListView,UpdateView,DeleteView
+from django.views.generic import CreateView,ListView,UpdateView,DeleteView,DetailView
 from .models import emp
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
@@ -16,5 +16,9 @@ class UpdateEmployee(LoginRequiredMixin,UpdateView):
     fields = '__all__'
 
 class DeleteEmployee(LoginRequiredMixin,DeleteView):
+    model = emp
+    success_url = '/Employee/view'
+
+class DetailEmployee(LoginRequiredMixin,DetailView):
     model = emp
     success_url = '/Employee/view'

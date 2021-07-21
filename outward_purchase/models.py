@@ -12,6 +12,7 @@ class outward_purchase(models.Model):
     products = models.ManyToManyField(prodoutward, related_name='outward_purchase_bill')
     total = models.IntegerField()
     gst = models.DecimalField(default=0,max_digits=9, decimal_places=2)
+    cgst = models.DecimalField(default=0, max_digits=9, decimal_places=2)
     discount = models.DecimalField(default=0,max_digits=9, decimal_places=2, blank=True, null=True)
     net_amount = models.DecimalField(max_digits=9, decimal_places=2)
     due_amount = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)

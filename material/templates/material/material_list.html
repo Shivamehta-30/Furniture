@@ -3,10 +3,9 @@
 {% load crispy_forms_field %}
 {% block extra_css %}
  <!-- DataTables -->
-  <link rel="stylesheet" href="{% static 'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'%}">
-  <link rel="stylesheet" href="{% static 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css'%}">
-  <link rel="stylesheet" href="{% static 'plugins/datatables-buttons/css/buttons.bootstrap4.min.css'%}">
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.1.0/css/searchBuilder.dataTables.min.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.0/css/dataTables.dateTime.min.css">
 {% endblock %}
 {% block header_title %}
     Material View
@@ -32,7 +31,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID</th>
@@ -47,12 +46,12 @@
                        <td>{{ mat.id }}</td>
                        <td>{{ mat.name }}</td>
                        <td>{{ mat.description | safe}}</td>
-                       <td><a class="btn btn-info btn-sm" href="{% url 'material-update' mat.id %}">
+                       <td><a class="btn btn-outline-info btn-sm" href="{% url 'material-update' mat.id %}">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                        <a class="btn btn-danger btn-sm" href="{% url 'material-delete' mat.id %}">
+                        <a class="btn btn-outline-danger btn-sm" href="{% url 'material-delete' mat.id %}">
                               <i class="fas fa-trash">
                               </i>
                               Delete
@@ -84,35 +83,19 @@
     <!-- /.content -->
 {% endblock %}
 {% block extra_js %}
-<script src="{% static 'plugins/datatables/jquery.dataTables.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-responsive/js/dataTables.responsive.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-responsive/js/responsive.bootstrap4.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/dataTables.buttons.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js'%}"></script>
-<script src="{% static 'plugins/jszip/jszip.min.js'%}"></script>
-<script src="{% static 'plugins/pdfmake/pdfmake.min.js'%}"></script>
-<script src="{% static 'plugins/pdfmake/vfs_fonts.js'%}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.html5.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.print.min.js'%}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.colVis.min.js'%}"></script>
+    <!-- Page specific script -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/searchbuilder/1.1.0/js/dataTables.searchBuilder.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+
 
     <!-- Page specific script -->
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy","excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+  $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Qlfrtip'
     });
-  });
+});
 </script>
 {% endblock %}

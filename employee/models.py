@@ -23,7 +23,7 @@ class emp(models.Model):
     DOJ=models.CharField(max_length=100)
     photo = models.ImageField(upload_to='photos', blank=True, default='default.jpg')
     documnets = models.FileField(upload_to='docs', default='')
-
+    salary=models.IntegerField(default=0)
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
 

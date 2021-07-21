@@ -27,7 +27,7 @@ class customer(models.Model):
     documnets=models.FileField(upload_to='docs',default='')
 
     def __str__(self):
-        return f"{self.companyname}"
+        return f"{self.firstname}-{self.lastname}"
 
     def get_absolute_url(self):
         return reverse("Customer-view")

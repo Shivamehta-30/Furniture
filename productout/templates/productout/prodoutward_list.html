@@ -10,7 +10,8 @@
                       <th>Rate</th>
                       <th>Price</th>
                       <th>Discount</th>
-                      <th>GST</th>
+                      <th>SGST</th>
+                      <th>CGST</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -24,6 +25,7 @@
                            <td>{{ mat.prices }}</td>
                            <td>{{ mat.discounts }}</td>
                            <td>{{ mat.GSTno }}</td>
+                           <td>{{ mat.cgst }}</td>
                        <td>
                            <a class="btn btn-info btn-xs" href="{% url 'prodoutward-update' mat.id %}" onclick="return !window.open(this.href, 'product update', 'width=700,height=600')"
                                 target="_blank">
@@ -51,7 +53,8 @@
                       <th>Rate</th>
                       <th>Price</th>
                       <th>Discount</th>
-                      <th>GST</th>
+                      <th>SGST</th>
+                      <th>CGST</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

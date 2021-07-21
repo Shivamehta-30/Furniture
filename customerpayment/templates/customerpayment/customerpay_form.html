@@ -33,70 +33,55 @@
               <form id="quickForm" method="post">
                   {% csrf_token %}
                 <div class="card-body">
-                    <div class="row">
-        {#                        col - 1 #}
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="bank_name">Date</label>
-                            {% crispy_field form.date %}
-                          </div></div>
-                        <div class="col-3">
-                            <div class="form-group" >
-                                <label for="inward">Outward Purchase Bill</label>
-                                {% crispy_field form.bill %}
-                          </div></div>
-                                <div class="col">
-                          <div class="form-group">
-                            <label for="type">Type </label>
-                            {% crispy_field form.type  %}
-                          </div></div>
-        {#                        col - 2 #}
-                                    <div class="col-2">
-                                    <div class="form-group" id="cash">
-                            <label for="balance">Amount </label>
-                            {% crispy_field form.cash  %}
-                          </div></div>
-                            <div class="col-3">
-                            <div class="form-group" id="bank">
-                                <label for="bank_name">Bank Name </label>
-                            {% crispy_field form.bank_name  %}
-                          </div></div>
-                            <div class="col-3">
-                          <div class="form-group" id="bank1">
-                            <label for="bank_branch">Bank Branch </label>
-                            {% crispy_field form.bank_branch %}
-                          </div></div>
-                                <div class="col-2">
-                             <div class="form-group" id="bank2">
-                            <label for="account_no">Account No. </label>
-                            {% crispy_field form.account_no  %}
-                          </div></div>
-                                <div class="col-3">
-                             <div class="form-group" id="bank3">
-                            <label for="ifsc_code">IFSC Code </label>
-                            {% crispy_field form.ifsc_code  %}
-                          </div></div>
-                                <div class="col-3">
-                             <div class="form-group" id="upi">
-                            <label for="phone">Phone </label>
-                            {% crispy_field form.phone  %}
-                          </div></div>
-                                <div class="col-3">
-                             <div class="form-group" id="upi1">
-                            <label for="upi">UPI Id </label>
-                            {% crispy_field form.upi  %}
-                          </div></div>
-                            <div class="col-6">
-                            <div class="form-group" id="check">
-                            <label for="balance">Cheque No. </label>
-                            {% crispy_field form.check_no  %}
-                          </div></div>
-                                <div class="col-6">
-                            <div class="form-group" id="check1">
-                            <label for="balance">Cheque Date </label>
-                            {% crispy_field form.check_date  %}
-                          </div></div>
-                    </div>
+                    <div class="form-group">
+                        <label for="name">Bill Payment Date</label>
+                        {% crispy_field form.date %}
+                     </div>
+                     <div class="form-group">
+                        <label for="name">Please Select Bill</label>
+                        {% crispy_field form.bill %}
+                     </div>
+                     <div class="form-group" id="type">
+                        <label for="name">Please Select Type Of Payment</label>
+                        {% crispy_field form.type %}
+                     </div>
+                     <div class="form-group" id="cash">
+                        <label for="name">Amount</label>
+                        {% crispy_field form.cash %}
+                     </div>
+                     <div class="form-group" id="bank">
+                        <label for="name">Bank Name</label>
+                        {% crispy_field form.bank_name %}
+                     </div>
+                     <div class="form-group" id="bank1">
+                        <label for="name">Bank Branch</label>
+                        {% crispy_field form.bank_branch %}
+                     </div>
+                     <div class="form-group" id="bank2">
+                        <label for="name">Account Number</label>
+                        {% crispy_field form.account_no %}
+                     </div>
+                     <div class="form-group" id="bank3">
+                        <label for="name">IFSC code</label>
+                        {% crispy_field form.ifsc_code %}
+                     </div>
+                     <div class="form-group" id="upi">
+                        <label for="name">Phone Number</label>
+                        {% crispy_field form.phone %}
+                     </div>
+                     <div class="form-group" id="upi1">
+                        <label for="name">UPI ID</label>
+                        {% crispy_field form.upi %}
+                     </div>
+                     <div class="form-group" id="check">
+                        <label for="name">Cheque Number</label>
+                        {% crispy_field form.check_no %}
+                     </div>
+
+                     <div class="form-group" id="check1">
+                        <label>Cheque Date</label>
+                         {% crispy_field form.check_date %}
+                     </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -134,7 +119,7 @@
                 document.querySelector("#upi1").style.display="none"
             }
             else if (this.value==='upi'){
-                document.querySelector("#cash").style.display="none"
+                document.querySelector("#cash").style.display="block"
                 document.querySelector("#bank").style.display="none"
                 document.querySelector("#bank1").style.display="none"
                 document.querySelector("#bank2").style.display="none"
@@ -145,7 +130,7 @@
                 document.querySelector("#upi1").style.display="block"
             }
             else if(this.value==='cheque'){
-                document.querySelector("#cash").style.display="none"
+                document.querySelector("#cash").style.display="block"
                 document.querySelector("#bank").style.display="none"
                 document.querySelector("#bank1").style.display="none"
                 document.querySelector("#bank2").style.display="none"
@@ -156,7 +141,7 @@
                 document.querySelector("#upi1").style.display="none"
             }
             else if(this.value==='netbank'){
-                document.querySelector("#cash").style.display="none"
+                document.querySelector("#cash").style.display="block"
                 document.querySelector("#bank").style.display="block"
                 document.querySelector("#bank1").style.display="block"
                 document.querySelector("#bank2").style.display="block"

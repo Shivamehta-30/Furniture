@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 class Newproductin(LoginRequiredMixin,CreateView):
     model = prodcutin
-    fields = ['productname', 'qun', 'rate', 'price', 'discount', 'GSTno']
+    fields = ['productname', 'qun', 'rate', 'price', 'discount', 'GSTno','cgst']
     context_object_name = 'product'
 class Viewproductin(LoginRequiredMixin,ListView):
     model = prodcutin

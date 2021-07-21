@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sunshine Furniture Mart</title>
-
+       <link rel = "icon" type = "image/x-icon" href = {% static '/dist/img/icons8-bench-48.png' %}>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -16,17 +16,17 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css'%}">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url({% static '/dist/img/img_bg_4.jpg' %})">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>SunShine Furniture Mart</b></a>
+      <a href="{% url 'login' %}" class="h3"><b style="color: #0c525d">SunShine Furniture Mart</b></a>
     </div>
     <div class="card-body">
 
-     <h2> You are Successfully logged out </h2>
-        <h3><a href="{%  url 'login' %}"> click here to login </a></h3>
+     <h4 style="color: #0c525d"> You are Successfully logged out </h4>
+        <h6 class="btn btn-outline-light"><a href="{%  url 'login' %}" style="color: #0c525d"> click here to login </a></h6>
 
 
     </div>

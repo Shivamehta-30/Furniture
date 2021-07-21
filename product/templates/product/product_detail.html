@@ -13,28 +13,36 @@
             </ol>
 {% endblock %}
 {% block body %}
-      <section class="content">
-      <div class="container-fluid">
 
-            <!-- /.card -->
-
-            <!-- About Me Box -->
-              <div class="col">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Detail</h3>
+    <div class="card card-solid">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <h3 class="d-inline-block d-sm-none">{{ object.name }}</h3>
+              <div class="col-12">
+                <img src="{{ object.photo1.url }}" class="product-image" alt="Product Image">
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
+              <div class="col-12 product-image-thumbs">
+                <div class="product-image-thumb active"><img src="{{object.photo1.url }}" alt="Product Image"></div>
+                <div class="product-image-thumb" ><img src="{{ object.photo2.url }}" alt="Product Image"></div>
+                <div class="product-image-thumb" ><img src="{{ object.photo3.url }}" alt="Product Image"></div>
+                <div class="product-image-thumb" ><img src="{{ object.photo4.url }}" alt="Product Image"></div>
+                <div class="product-image-thumb" ><img src="{{ object.photo5.url }}" alt="Product Image"></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <h3 class="my-3">{{ object.name }}</h3>
+
+                 <div class="card-body">
 
 
-                <strong><i class="fas fa-cart-arrow-down"></i>Name</strong>
+                <strong><i class="fas fa-cart-arrow-down"></i> Name</strong>
 
                 <p class="text-muted">{{ object.name }}</p>
 
                 <hr>
 
-                <strong><i class="fas fa-shapes"></i> Model No.</strong>
+                <strong><i class="fas fa-universal-access"></i> Model No.</strong>
 
                   <p class="text-muted">{{ object.serno }}</p>
 
@@ -44,7 +52,7 @@
                   <p class="text-muted">{{ object.maincategory }}</p>
 
                 <hr>
-                   <strong><i class="fas fa-shopping-bag"></i> Sub Category</strong>
+                   <strong><i class="fas fa-sun"></i> Sub Category</strong>
 
                   <p class="text-muted">{{ object.subcategory }}</p>
 
@@ -54,12 +62,12 @@
                   <p class="text-muted">{{ object.materials }}</p>
 
                 <hr>
-                        <strong><i class="fas fa-memory"></i> Size</strong>
+                        <strong><i class="fas fa-database"></i> Size</strong>
 
                   <p class="text-muted">{{ object.size }}</p>
 
                 <hr>
-                      <strong><i class="fas fa-weight-hanging"></i> Quantity</strong>
+                      <strong><i class="fas fa-weight"></i> Quantity</strong>
 
                   <p class="text-muted">{{ object.qun }}</p>
 
@@ -76,14 +84,21 @@
                 <hr>
               </div>
             </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div></div>
-          <!-- /.col -->
-          <!-- /.col -->
+          </div>
 
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+        </div>
+        <!-- /.card-body -->
+      </div>
+{% endblock %}
+{% block extra_js %}
+<script>
+  $(document).ready(function() {
+    $('.product-image-thumb').on('click', function () {
+      var $image_element = $(this).find('img')
+      $('.product-image').prop('src', $image_element.attr('src'))
+      $('.product-image-thumb.active').removeClass('active')
+      $(this).addClass('active')
+    })
+  })
+</script>
 {% endblock %}

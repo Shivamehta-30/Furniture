@@ -1,5 +1,5 @@
 <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -10,7 +10,8 @@
                       <th>Rate</th>
                       <th>Price</th>
                       <th>Discount</th>
-                      <th>GST</th>
+                      <th>SGST</th>
+                      <th>CGST</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -24,6 +25,7 @@
                            <td>{{ mat.price  }}</td>
                            <td>{{ mat.discount }}</td>
                            <td>{{ mat.GSTno }}</td>
+                           <td>{{ mat.cgst }}</td>
                        <td>
                            <a class="btn btn-info btn-xs" href="{% url 'prodinward-update' mat.id %}" onclick="return !window.open(this.href, 'product update', 'width=700,height=600')"
                                 target="_blank">
@@ -51,7 +53,8 @@
                       <th>Rate</th>
                       <th>Price</th>
                       <th>Discount</th>
-                      <th>GST</th>
+                      <th>SGST</th>
+                      <th>CGST</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

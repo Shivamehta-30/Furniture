@@ -9,6 +9,7 @@ class prodcutin(models.Model):
     qun=models.IntegerField()
     price=models.FloatField(max_length=1000)
     GSTno=models.CharField(default=0,max_length=100,null=True,blank=True)
+    cgst = models.DecimalField(default=0, max_digits=9, decimal_places=2)
     discount=models.FloatField(default=0,max_length=100,null=True,blank=True)
     is_billed=models.BooleanField(default=False)
 

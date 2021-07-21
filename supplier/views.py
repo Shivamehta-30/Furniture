@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView,ListView,UpdateView,DeleteView
+from django.views.generic import CreateView,ListView,UpdateView,DeleteView,DetailView
 from .models import supplier
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -19,3 +19,8 @@ class UpdateSupplier(LoginRequiredMixin,UpdateView):
 class DeleteSupplier(LoginRequiredMixin,DeleteView):
     model = supplier
     success_url = '/supplier/view'
+
+class DetailSupplier(LoginRequiredMixin,DetailView):
+    model = supplier
+    success_url = '/supplier/view'
+

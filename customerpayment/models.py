@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from datetime import datetime
 from outward_purchase.models import outward_purchase
+from django.core.validators import MinValueValidator
 # Create your models here.
 class customerpay(models.Model):
     choice = (
@@ -14,7 +15,7 @@ class customerpay(models.Model):
     ifsc_code = models.CharField(max_length=80, null=True, blank=True,default='')
     phone = models.CharField(max_length=15, null=True, blank=True,default='')
     upi = models.CharField(max_length=80, null=True, blank=True,default='')
-    cash = models.IntegerField(default=0, null=True, blank=True)
+    cash = models.IntegerField(default=0, null=True, blank=True,validators=[MinValueValidator(0,'Value should not be less than 0')])
     check_no = models.CharField(max_length=30, default='', null=True, blank=True)
     check_date = models.CharField(max_length=35, default='', null=True, blank=True)
     date = models.DateField(default=datetime.utcnow())

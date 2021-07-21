@@ -34,8 +34,11 @@
                   {% csrf_token %}
                 <div class="card-body">
                   <ul>
-                  <li> rate : {{ object.rate}}</li>
-                  <li> Quantity :{{ object.quantity}}</li>
+                      <li>Date : {{ object.date }}</li>
+                      <li> Bill Id :{{ object.id }} </li>
+                      <li> Net Amount : {{ object.net_amount }}</li>
+                      <li> Due amount : {{ object.due_amount }} </li>
+                      <li> Total :{{ object.total }}</li>
               </ul>
 
                 </div>

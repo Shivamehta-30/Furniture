@@ -6,5 +6,6 @@ urlpatterns=[
         path("view/", ViewPurchaseBill.as_view(), name="view-purchase"),
         path("update/<int:pk>", UpdatePurchaseBill.as_view(), name="update-purchase"),
         path("delete/<int:pk>", DeletePurchaseBill.as_view(), name="delete-purchase"),
-        path("detail/<int:pk>", DetailPurchaseBill.as_view(), name="detail-purchase")
+        path("detail/<int:pk>", DetailPurchaseBill.as_view(), name="detail-purchase"),
+        path("invoice/<int:billid>",invoice, name="print")
 ]
